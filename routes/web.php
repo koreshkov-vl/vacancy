@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/vacancies/create', 'VacancyController@create')->middleware('auth');
+Route::post('/vacancies', 'VacancyController@store')->middleware('auth');
+Route::get('/vacancies/{vacancy}', 'VacancyController@show');
+Route::get('/vacancies', 'VacancyController@index');
+Route::get('/', 'VacancyController@index');
+
+Auth::routes();

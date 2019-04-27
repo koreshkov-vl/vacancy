@@ -13,13 +13,15 @@ class CreateVacancyTable extends Migration
      */
     public function up()
     {
-        Schema::create('vacancy', function (Blueprint $table) {
+        Schema::create('vacancies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('owner_id');
             $table->string('title');
-            $table->string('description');
-            $table->boolean('is_deleted')->default(0);
+            $table->text('description');
             $table->unsignedInteger('views')->default(0);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +32,6 @@ class CreateVacancyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vacancy');
+        Schema::dropIfExists('vacancies');
     }
 }

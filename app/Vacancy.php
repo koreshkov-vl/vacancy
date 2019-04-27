@@ -19,6 +19,7 @@ class Vacancy extends Model
         $vacancies = DB::table('vacancies')
             ->orderBy('created_at', 'desc')
             ->limit($count)
+            ->selectRaw('*, CONCAT(\'/vacancies/\', id) as path')
             ->get();
 
         return $vacancies;

@@ -17,16 +17,6 @@ class Vacancy extends Model
         return "/vacancies/{$this->id}";
     }
 
-    public static function getNewest(int $count = 6)
-    {
-        $vacancies = DB::table('vacancies')
-            ->orderBy('created_at', 'desc')
-            ->limit($count)
-            ->get();
-
-        return $vacancies;
-    }
-
     public static function pagination(int $paginationCount)
     {
         $vacancies = DB::table('vacancies')

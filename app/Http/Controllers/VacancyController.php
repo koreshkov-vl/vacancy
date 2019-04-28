@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Vacancy;
+use App\VacanciesSearch\VacanciesRepository;
 use Illuminate\Support\Facades\Session;
 
 class VacancyController extends Controller
 {
     const PAGINATION_CONST = 10;
 
-    public function index() {
-
-        $vacancies = Vacancy::getNewest();
+    public function index(VacanciesRepository $vacanciesRepository)
+    {
+        $vacancies = $vacanciesRepository->getNewest()->toArray();
 
         return view('vacancies.index', compact('vacancies'));
     }
@@ -41,6 +42,7 @@ class VacancyController extends Controller
             'title' => 'required',
             'description' => 'required'
         ]);
+        $attributes['views'] = 0;
 
         auth()->user()->vacancies()->create($attributes);
 
@@ -80,7 +82,7 @@ class VacancyController extends Controller
     public function delete(int $vacancy)
     {
         try {
-            Vacancy::where('id', $vacancy)->delete();
+            Vacancy::destroy([$vacancy]);
             Session::flash('message.level', 'info');
             Session::flash('message.content', 'Deleted');
         } catch (\Exception $e) {

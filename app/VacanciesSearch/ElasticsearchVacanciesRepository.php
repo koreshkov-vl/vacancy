@@ -21,6 +21,33 @@ class ElasticsearchVacanciesRepository implements VacanciesRepository
         return $this->buildCollection($items);
     }
 
+    public function getNewest(int $count = 6): Collection
+    {
+        $items = $this->getNewestFromElasticsearch($count);
+
+        return $this->buildCollection($items);
+    }
+
+    private function getNewestFromElasticsearch(int $count): array
+    {
+        $instance = new Vacancy;
+
+        $items = $this->search->search([
+            'index' => $instance->getSearchIndex(),
+            'type' => $instance->getSearchType(),
+            'size' => $count,
+            'body' => [
+                'sort' => [
+                    'id' => [
+                        'order' => 'desc'
+                    ]
+                ]
+            ],
+        ]);
+
+        return $items;
+    }
+
     private function searchOnElasticsearch(string $query): array
     {
         $instance = new Vacancy;
@@ -31,7 +58,7 @@ class ElasticsearchVacanciesRepository implements VacanciesRepository
             'body' => [
                 'query' => [
                     'multi_match' => [
-                        'fields' => ['title', 'body', 'tags'],
+                        'fields' => ['title', 'body'],
                         'query' => $query,
                     ],
                 ],
@@ -55,11 +82,6 @@ class ElasticsearchVacanciesRepository implements VacanciesRepository
          */
         $hits = array_pluck($items['hits']['hits'], '_source') ?: [];
 
-        $sources = array_map(function ($source) {
-            $source['tags'] = json_encode($source['tags']);
-            return $source;
-        }, $hits);
-
-        return Vacancy::hydrate($sources);
+        return Vacancy::hydrate($hits);
     }
 }

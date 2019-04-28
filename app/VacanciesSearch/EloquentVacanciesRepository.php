@@ -13,4 +13,11 @@ class EloquentVacanciesRepository implements VacanciesRepository
             ->orWhere('title', 'like', "%{$query}%")
             ->get();
     }
+
+    public function getNewest(int $count = 6): Collection
+    {
+        return Vacancy::orderBy('created_at', 'desc')
+            ->limit($count)
+            ->get();
+    }
 }

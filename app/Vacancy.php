@@ -4,24 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Search\Searchable;
 
 class Vacancy extends Model
 {
+    use Searchable;
+
     protected $guarded = [];
 
     public function path()
     {
         return "/vacancies/{$this->id}";
-    }
-
-    public static function getNewest(int $count = 6)
-    {
-        $vacancies = DB::table('vacancies')
-            ->orderBy('created_at', 'desc')
-            ->limit($count)
-            ->get();
-
-        return $vacancies;
     }
 
     public static function pagination(int $paginationCount)
@@ -50,5 +43,12 @@ class Vacancy extends Model
             ->first();
 
         return $vacancy;
+    }
+
+    public static function increaseViews(int $vacancyId)
+    {
+        $vacancy = Vacancy::find($vacancyId);
+        $vacancy->views++;
+        $vacancy->save();
     }
 }

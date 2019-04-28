@@ -3,24 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Vacancy;
+use App\VacanciesSearch\VacanciesRepository;
 use Illuminate\Support\Facades\Session;
 
 class VacancyController extends Controller
 {
     const PAGINATION_CONST = 10;
 
-    public function index() {
-
-        $vacancies = Vacancy::getNewest();
+    public function index(VacanciesRepository $vacanciesRepository)
+    {
+        $vacancies = $vacanciesRepository->getNewest()->toArray();
 
         return view('vacancies.index', compact('vacancies'));
     }
 
-    public function show(int $vacancy)
+    public function show(int $vacancyId)
     {
-        $vacancy = Vacancy::getWithOwner($vacancy);
+        Vacancy::increaseViews($vacancyId);
+        $vacancy = Vacancy::getWithOwner($vacancyId);
 
         return view('vacancies.show', compact('vacancy'));
     }
@@ -42,6 +43,7 @@ class VacancyController extends Controller
             'title' => 'required',
             'description' => 'required'
         ]);
+        $attributes['views'] = 0;
 
         auth()->user()->vacancies()->create($attributes);
 
@@ -60,8 +62,13 @@ class VacancyController extends Controller
 
     public function update(int $vacancy)
     {
+        $attributes = \request();
+
         try {
-            Vacancy::find('id', $vacancy)->update(request());
+            $vacancy = Vacancy::find($vacancy);
+            $vacancy->title = $attributes['title'];
+            $vacancy->description = $attributes['description'];
+            $vacancy->save();
             Session::flash('message.level', 'info');
             Session::flash('message.content', 'Updated');
         } catch (\Exception $e) {
@@ -76,7 +83,7 @@ class VacancyController extends Controller
     public function delete(int $vacancy)
     {
         try {
-            Vacancy::where('id', $vacancy)->delete();
+            Vacancy::destroy([$vacancy]);
             Session::flash('message.level', 'info');
             Session::flash('message.content', 'Deleted');
         } catch (\Exception $e) {

@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aff9c1ae-b3f6-4d4e-9b96-60fad24ca58e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/vacancies/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VacancyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VacancyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vacancies/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vacancies/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vacancies/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vacancies/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/VacancyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/VacancyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vacancies/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vacancies/edit.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,13 +35,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/vacancies/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+            <state relative-caret-position="268">
+              <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
               <folding>
                 <element signature="e#652#658#0#HTML" expanded="true" />
                 <element signature="e#732#738#0#HTML" expanded="true" />
                 <element signature="e#744#750#0#HTML" expanded="true" />
-                <element signature="e#1360#1366#0#HTML" expanded="true" />
+                <element signature="e#1156#1162#1#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VacancyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="863">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="413">
+              <caret line="71" column="62" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -90,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Feature/VacancyTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="236">
+              <caret line="26" column="80" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
               <folding>
                 <element signature="e#33#52#0#PHP" expanded="true" />
               </folding>
@@ -170,10 +166,10 @@
         <option value="$PROJECT_DIR$/resources/views/vacancies/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/vacancies/admin.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/vacancies/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/vacancies/edit.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VacancyController.php" />
         <option value="$PROJECT_DIR$/tests/Feature/VacancyTest.php" />
+        <option value="$PROJECT_DIR$/resources/views/vacancies/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VacancyController.php" />
       </list>
     </option>
   </component>
@@ -405,21 +401,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556365108006</updated>
-      <workItem from="1556365109155" duration="35562000" />
+      <workItem from="1556365109155" duration="36611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35562000" />
+    <option name="totallyTimeSpent" value="36611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24969475" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24969475" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.37740386" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.37740386" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -697,19 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/vacancies/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-          <folding>
-            <element signature="e#652#658#0#HTML" expanded="true" />
-            <element signature="e#732#738#0#HTML" expanded="true" />
-            <element signature="e#744#750#0#HTML" expanded="true" />
-            <element signature="e#1360#1366#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -717,22 +700,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VacancyController.php">
+    <entry file="file://$PROJECT_DIR$/tests/Feature/VacancyTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="236">
+          <caret line="26" column="80" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
           <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="e#33#52#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/VacancyTest.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/vacancies/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="268">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
           <folding>
-            <element signature="e#33#52#0#PHP" expanded="true" />
+            <element signature="e#652#658#0#HTML" expanded="true" />
+            <element signature="e#732#738#0#HTML" expanded="true" />
+            <element signature="e#744#750#0#HTML" expanded="true" />
+            <element signature="e#1156#1162#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VacancyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="71" column="62" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

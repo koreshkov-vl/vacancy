@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Vacancy;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;

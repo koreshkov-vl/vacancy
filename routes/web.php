@@ -13,6 +13,12 @@
 
 Route::get('/vacancies/create', 'VacancyController@create')->middleware('auth');
 Route::get('/vacancies/admin', 'VacancyController@admin')->middleware('auth');
+Route::get('/vacancies/{vacancy}/edit', 'VacancyController@edit')
+    ->middleware('auth')
+    ->where(['id' => '[0-9]+']);
+Route::post('/vacancies/{vacancy}/update', 'VacancyController@update')
+    ->middleware('auth')
+    ->where(['id' => '[0-9]+']);
 Route::post('/vacancies', 'VacancyController@store')->middleware('auth');
 Route::delete('/vacancies/{vacancy}/delete', 'VacancyController@delete')
     ->middleware('auth')

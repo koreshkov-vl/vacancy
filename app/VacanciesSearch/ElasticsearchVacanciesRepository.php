@@ -32,18 +32,22 @@ class ElasticsearchVacanciesRepository implements VacanciesRepository
     {
         $instance = new Vacancy;
 
-        $items = $this->search->search([
-            'index' => $instance->getSearchIndex(),
-            'type' => $instance->getSearchType(),
-            'size' => $count,
-            'body' => [
-                'sort' => [
-                    'id' => [
-                        'order' => 'desc'
+        try {
+            $items = $this->search->search([
+                'index' => $instance->getSearchIndex(),
+                'type' => $instance->getSearchType(),
+                'size' => $count,
+                'body' => [
+                    'sort' => [
+                        'id' => [
+                            'order' => 'desc'
+                        ]
                     ]
-                ]
-            ],
-        ]);
+                ],
+            ]);
+        } catch (\Exception $e) {
+            $items = [];
+        }
 
         return $items;
     }
@@ -80,7 +84,11 @@ class ElasticsearchVacanciesRepository implements VacanciesRepository
          *      ]
          * ]
          */
-        $hits = array_pluck($items['hits']['hits'], '_source') ?: [];
+        if (!empty($items)) {
+            $hits = array_pluck($items['hits']['hits'], '_source') ?: [];
+        } else {
+            $hits = [];
+        }
 
         return Vacancy::hydrate($hits);
     }

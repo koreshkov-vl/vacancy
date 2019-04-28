@@ -46,10 +46,32 @@ class VacancyController extends Controller
         auth()->user()->vacancies()->create($attributes);
 
         Session::flash('message.level', 'success');
-        Session::flash('message.content', 'Created');
+        Session::flash('message.content', 'Created!');
 
-        return redirect('/vacancies');
+        return redirect('/vacancies/admin');
     }
+
+    public function edit(int $vacancy)
+    {
+        $vacancy = Vacancy::getWithOwner($vacancy);
+
+        return view('vacancies.edit', compact('vacancy'));
+    }
+
+    public function update(int $vacancy)
+    {
+        try {
+            Vacancy::find('id', $vacancy)->update(request());
+            Session::flash('message.level', 'info');
+            Session::flash('message.content', 'Updated');
+        } catch (\Exception $e) {
+            Session::flash('message.level', 'danger');
+            Session::flash('message.content', 'Failure!');
+        }
+
+        return redirect('/vacancies/admin');
+    }
+
 
     public function delete(int $vacancy)
     {

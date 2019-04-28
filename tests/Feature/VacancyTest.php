@@ -24,11 +24,11 @@ class VacancyTest extends TestCase
 
         $this->get('/vacancies/create')->assertStatus(200);
 
-        $this->post('/vacancies', $attributes)->assertRedirect('/vacancies');
+        $this->post('/vacancies', $attributes)->assertRedirect('/vacancies/admin');
 
         $this->assertDatabaseHas('vacancies', $attributes);
 
-        $this->get('/vacancies')->assertSee($attributes['title']);
+        $this->get('/vacancies/admin')->assertSee($attributes['title']);
     }
 
     /** @test */

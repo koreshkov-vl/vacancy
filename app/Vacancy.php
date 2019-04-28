@@ -4,9 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Search\Searchable;
 
 class Vacancy extends Model
 {
+    use Searchable;
+
     protected $guarded = [];
 
     public function path()

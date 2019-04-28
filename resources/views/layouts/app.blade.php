@@ -20,6 +20,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    @if(session()->has('message.level'))
+        <div class="alert alert-{{ session('message.level') }}">
+            {!! session('message.content') !!}
+        </div>
+    @endif
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
@@ -53,7 +58,7 @@
                                 <a class="nav-link text-primary" href="/vacancies/create">New vacancy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-primary" href="/vacancies/create">Admin panel</a>
+                                <a class="nav-link text-primary" href="/vacancies/admin">Admin panel</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

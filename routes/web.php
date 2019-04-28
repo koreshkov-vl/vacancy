@@ -12,8 +12,12 @@
 */
 
 Route::get('/vacancies/create', 'VacancyController@create')->middleware('auth');
+Route::get('/vacancies/admin', 'VacancyController@admin')->middleware('auth');
 Route::post('/vacancies', 'VacancyController@store')->middleware('auth');
-Route::get('/vacancies/{vacancy}', 'VacancyController@show');
+Route::delete('/vacancies/{vacancy}/delete', 'VacancyController@delete')
+    ->middleware('auth')
+    ->where(['id' => '[0-9]+']);
+Route::get('/vacancies/{vacancy}', 'VacancyController@show')->where(['id' => '[0-9]+']);
 Route::get('/vacancies', 'VacancyController@index');
 Route::get('/', 'VacancyController@index');
 

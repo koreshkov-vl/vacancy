@@ -63,9 +63,16 @@ class VacancyTest extends TestCase
     }
 
     /** @test */
-    public function only_authentited_users_can_create_vacancy()
+    public function only_authenticated_users_can_create_vacancy()
     {
         $attributes = factory('App\Vacancy')->raw();
         $this->post('/vacancies', $attributes)->assertRedirect('login');
+    }
+
+    /** @test */
+    public function only_authenticated_users_can_delete_vacancy()
+    {
+        $attributes = factory('App\Vacancy')->raw();
+        $this->delete('/vacancies/{vacancy}/delete', $attributes)->assertRedirect('login');
     }
 }

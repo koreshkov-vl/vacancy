@@ -19,7 +19,6 @@ class Vacancy extends Model
         $vacancies = DB::table('vacancies')
             ->orderBy('created_at', 'desc')
             ->limit($count)
-            ->selectRaw('vacancies.*, CONCAT(\'/vacancies/\', vacancies.id) as path')
             ->get();
 
         return $vacancies;
@@ -33,9 +32,7 @@ class Vacancy extends Model
             ->selectRaw(
                 'vacancies.*, 
                 users.name as user_name, 
-                users.email as user_email, 
-                CONCAT(\'/vacancies/\', vacancies.id) as path,
-                CONCAT(\'/vacancies/\', vacancies.id, \'/delete\') as delete_path')
+                users.email as user_email')
             ->paginate($paginationCount);
 
         return $vacancies;
@@ -49,8 +46,7 @@ class Vacancy extends Model
             ->selectRaw('
                 vacancies.*,
                 users.name as user_name,
-                users.email as user_email,
-                CONCAT(\'/vacancies/\', vacancies.id, \'/delete\') as delete_path')
+                users.email as user_email')
             ->first();
 
         return $vacancy;

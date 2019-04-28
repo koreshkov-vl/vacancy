@@ -14,7 +14,6 @@
                 <div class="row col-xl-12">
                     <a href="/vacancies/{{ $vacancy->id }}/edit" type="button" class="btn btn-warning">Edit</a>&nbsp;
 
-
                     <form action="/vacancies/{{ $vacancy->id }}/delete" method="post">
                         <button type="submit" class="btn btn-outline-danger" value="Delete">Delete</button>
                         {!! method_field('delete') !!}

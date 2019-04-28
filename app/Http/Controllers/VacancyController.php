@@ -64,7 +64,7 @@ class VacancyController extends Controller
         try {
             $vacancy = Vacancy::find($vacancy);
             $vacancy->title = $attributes['title'];
-            $vacancy->description  = $attributes['description'];
+            $vacancy->description = $attributes['description'];
             $vacancy->save();
             Session::flash('message.level', 'info');
             Session::flash('message.content', 'Updated');

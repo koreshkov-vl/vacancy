@@ -18,9 +18,10 @@ class VacancyController extends Controller
         return view('vacancies.index', compact('vacancies'));
     }
 
-    public function show(int $vacancy)
+    public function show(int $vacancyId)
     {
-        $vacancy = Vacancy::getWithOwner($vacancy);
+        Vacancy::increaseViews($vacancyId);
+        $vacancy = Vacancy::getWithOwner($vacancyId);
 
         return view('vacancies.show', compact('vacancy'));
     }

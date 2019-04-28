@@ -44,4 +44,11 @@ class Vacancy extends Model
 
         return $vacancy;
     }
+
+    public static function increaseViews(int $vacancyId)
+    {
+        $vacancy = Vacancy::find($vacancyId);
+        $vacancy->views++;
+        $vacancy->save();
+    }
 }

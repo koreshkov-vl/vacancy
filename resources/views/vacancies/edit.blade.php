@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section ('content')
-    <form method="POST" action="/vacancies">
+    <form method="POST" action="/vacancies/{{ $vacancy->id }}/update">
         <h1 class="heading is-1">Edit vacancy</h1>
         @csrf
         <div class="form-group">
@@ -17,18 +17,15 @@
             &nbsp;email:&nbsp;<p class="text-success">{{ $vacancy->user_email }}</p>
         </div>
         <div class="row col-xl-12">
-            <form action="/vacancies/{{ $vacancy->id }}/update" method="post">
-                <button type="submit" class="btn btn-outline-info" value="post">Save changes</button>
-                {!! method_field('post') !!}
-                {!! csrf_field() !!}
-            </form>&nbsp;
-            <form action="/vacancies/{{ $vacancy->id }}/delete" method="post">
-                <button type="submit" class="btn btn-outline-danger" value="Delete">Delete</button>
-                {!! method_field('delete') !!}
-                {!! csrf_field() !!}
-            </form>
+            <button type="submit" class="btn btn-outline-info" value="post">Save changes</button>
         </div>
-
     </form>
+    &nbsp;
+    <form action="/vacancies/{{ $vacancy->id }}/delete" method="post">
+        <button type="submit" class="btn btn-outline-danger" value="Delete">Delete</button>
+        {!! method_field('delete') !!}
+        {!! csrf_field() !!}
+    </form>
+
 
 @endsection

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Vacancy;
 use Illuminate\Support\Facades\Session;
 
@@ -60,8 +59,13 @@ class VacancyController extends Controller
 
     public function update(int $vacancy)
     {
+        $attributes = \request();
+
         try {
-            Vacancy::find('id', $vacancy)->update(request());
+            $vacancy = Vacancy::find($vacancy);
+            $vacancy->title = $attributes['title'];
+            $vacancy->description  = $attributes['description'];
+            $vacancy->save();
             Session::flash('message.level', 'info');
             Session::flash('message.content', 'Updated');
         } catch (\Exception $e) {
